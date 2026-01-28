@@ -1,0 +1,154 @@
+:root{
+    --bg-top: #f6fbfb;
+    --bg-bottom: #eef7f2;
+    --accent: #1b7f5a; /* brand green */
+    --accent-2: #0f4c75; /* deep blue */
+    --muted: #6b7a80;
+    --card: #ffffff;
+    --glass: rgba(255,255,255,0.6);
+}
+
+/* Global */
+html,body{
+    height:100%;
+}
+body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+    color: #163a3a;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+}
+
+/* App container (works with Streamlit's main app) */
+.stApp, main {
+    padding: 24px 28px;
+}
+
+/* Headings */
+h1{
+    color: var(--accent);
+    font-size: 2.1rem;
+    letter-spacing: -0.5px;
+    margin: 0 0 12px 0;
+}
+
+h2, h3{
+    color: var(--accent-2);
+    margin: 10px 0;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"]{
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,255,250,0.75));
+    padding: 18px 14px !important;
+    border-right: 1px solid rgba(15,76,117,0.06);
+    box-shadow: 0 6px 18px rgba(16,24,32,0.04);
+}
+
+/* Cards */
+.card, .metric, .stContainer, div.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(11,20,16,0.04);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(16,24,32,0.08);
+}
+
+/* Buttons */
+button[kind="primary"], .stButton>button{
+    background: linear-gradient(90deg,var(--accent), #12906a);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight:600;
+    box-shadow: 0 8px 18px rgba(27,127,90,0.14);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    cursor: pointer;
+}
+button[kind="primary"]:hover, .stButton>button:hover{
+    transform: translateY(-2px);
+    opacity: .98;
+}
+
+/* Secondary buttons/links */
+.btn-ghost{
+    background: transparent;
+    color: var(--accent-2);
+    border: 1px solid rgba(15,76,117,0.08);
+}
+
+/* Alerts / Info boxes */
+div[data-testid="stAlert"]{
+    border-left: 6px solid var(--accent);
+    background: linear-gradient(90deg, rgba(27,127,90,0.05), rgba(15,76,117,0.01));
+    padding: 10px 12px;
+    border-radius: 6px;
+}
+
+/* Tables */
+table {
+    width:100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+th, td{
+    padding: 10px 12px;
+    text-align:left;
+    border-bottom: 1px solid rgba(16,24,32,0.04);
+}
+th{
+    color: var(--muted);
+    font-weight:600;
+    font-size:0.95rem;
+}
+
+/* Charts and visual containers */
+.chart-card{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:220px;
+}
+
+/* Inputs */
+input, select, textarea{
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(11,20,16,0.06);
+    background: rgba(255,255,255,0.9);
+}
+
+/* Utility */
+.muted{ color: var(--muted); }
+.small{ font-size:0.86rem; }
+
+/* Fade-in animation for components */
+.fade-in{ animation: fadeIn .45s ease both; }
+@keyframes fadeIn{
+    from{ opacity:0; transform: translateY(6px); }
+    to{ opacity:1; transform: translateY(0); }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px){
+    .stApp, main{ padding: 14px; }
+    h1{ font-size:1.6rem; }
+    .card{ padding:12px; border-radius:10px; }
+}
+
+@media (max-width:480px){
+    button[kind="primary"], .stButton>button{ width:100%; }
+}
+
+/* Small polish for links */
+a{ color: var(--accent-2); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
